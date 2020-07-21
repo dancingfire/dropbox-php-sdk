@@ -364,7 +364,10 @@ class DropboxRequest
             //Remove the validateResponse from the params array
             unset($params['validateResponse']);
         }
-
+        
+        //Update the header to the root namespace /Arc Photo
+		$test = array(".tag"=> "namespace_id", "namespace_id"=>"7288834496");
+	    $this->setHeaders(['Dropbox-API-Path-Root' => json_encode($test)]);
         return $params;
     }
 }
